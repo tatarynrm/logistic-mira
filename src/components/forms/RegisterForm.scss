@@ -1,0 +1,14 @@
+.register {
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__error {
+    color: red;
+    font-size: 14px;
+  }
+  button {
+    margin-top: 10px;
+  }
+}

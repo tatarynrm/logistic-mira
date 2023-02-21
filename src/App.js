@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "./utils/axios/axios";
+import Header from "./components/header/Header";
+import EditPost from "./pages/EditPost/EditPost";
+import Home from "./pages/Home";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
+import PrivateRoute from "./PrivateRoute";
+import DoesntExit from "./pages/DoesntExit";
 
 function App() {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+  console.log(isAuth);
+  useEffect(() => {
+    dispatch(fetchAuthMe());
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route element={<Login />} path="/login" />
+        <Route path="/register" element={<Register />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/notes/:id" element={<EditPost />} />
+        </Route>
+        <Route path="*" exact={true} element={<DoesntExit />} />
+      </Routes>
+    </>
   );
 }
 
