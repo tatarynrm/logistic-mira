@@ -1,7 +1,7 @@
 import axios from "axios";
 import env from "react-dotenv";
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_HOST,
+  baseURL: "https://api.tatarynmira.pp.ua",
 });
 
 instance.interceptors.request.use((config) => {
