@@ -1,8 +1,8 @@
 import axios from "axios";
 import env from "react-dotenv";
 const instance = axios.create({
-  baseURL: "https://api.tatarynmira.pp.ua",
-  // baseURL: "http://localhost:8800",
+  // baseURL: "https://api.tatarynmira.pp.ua",
+  baseURL: "http://localhost:8800",
 });
 
 instance.interceptors.request.use((config) => {
