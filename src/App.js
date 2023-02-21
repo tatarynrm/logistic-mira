@@ -14,7 +14,6 @@ import DoesntExit from "./pages/DoesntExit";
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-  console.log(isAuth);
   useEffect(() => {
     dispatch(fetchAuthMe());
   }, []);

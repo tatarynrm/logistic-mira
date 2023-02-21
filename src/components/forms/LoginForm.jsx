@@ -9,7 +9,6 @@ import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-  console.log(isAuth);
   const [val, setVal] = useState({
     email: "",
     password: "",

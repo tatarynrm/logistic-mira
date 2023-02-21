@@ -29,6 +29,19 @@
       color: rgb(58, 169, 233);
     }
   }
+
+  .user__circle {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    background-color: orange;
+    border-radius: 50px;
+    width: 30px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -54,12 +67,17 @@
       &__edit_buttons {
         display: flex;
         justify-content: space-between;
+        width: 100%;
       }
       &__note {
         position: absolute;
         top: 0;
         left: 0;
         font-size: 30px;
+      }
+      .user__circle {
+        position: absolute;
+        width: 20%;
       }
     }
   }

@@ -6,15 +6,18 @@ import CreatePosts from "../components/forms/CreatePosts";
 import axios from "../utils/axios/axios";
 import Post from "../components/post/Post";
 import PostData from "../components/post/PostData";
+import { fetchUserById, fetchUsers } from "../redux/slices/user";
 const Home = () => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.posts);
+  const { users } = useSelector((state) => state.users);
   const isPostsLoading = posts.status === "loading";
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
-  console.log(posts);
-  //   console.log(posts);
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, []);
   return (
     <div className="home container">
       <CreatePosts />

@@ -11,4 +11,33 @@
     display: flex;
     justify-content: space-between;
   }
+  &__user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    &__logo {
+      color: black;
+    }
+
+    &__buttons {
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+    }
+    &__user-info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+  }
 }
