@@ -14,6 +14,7 @@ const Post = ({ obj, userData }) => {
   const [showNote, setShowNote] = useState(false);
   const { users } = useSelector((state) => state.users);
   const dispatch = useDispatch();
+  console.log(obj.status);
   const deletePost = async (id) => {
     if (window.confirm("Ви точно хочете видалити ?")) {
       const { data } = await axios.delete(`/notes/${id}`);
@@ -22,7 +23,7 @@ const Post = ({ obj, userData }) => {
   };
   return (
     <>
-      <div className={`post post__${obj.status.toLowerCase()}`}>
+      <div className={`post post__${obj.status}`}>
         {obj.note !== "" ? (
           <i
             onClick={() => setShowNote(!showNote)}

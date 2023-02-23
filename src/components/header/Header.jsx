@@ -7,6 +7,7 @@ import "./Header.scss";
 const Header = () => {
   const isAuth = useSelector(selectIsAuth);
   const userData = useSelector((state) => state.auth.data);
+  const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const token = window.localStorage.getItem("token");
   const onClickLogout = () => {
@@ -15,6 +16,7 @@ const Header = () => {
       dispatch(logout());
     }
   };
+
   return (
     <header className="header container">
       <Link to={token ? "/" : "/login"}>
@@ -29,6 +31,11 @@ const Header = () => {
             {userData ? `${userData.firstName} ${userData.lastName}` : null}
           </span>
         </div>
+        {/* {userData?._id === posts.items._id ? (
+          <span>0</span>
+        ) : (
+          <span>Активних заявок:{length.length}</span>
+        )} */}
         {isAuth ? (
           <>
             <Button func={onClickLogout} text={"Вийти"} cls={"danger"} />

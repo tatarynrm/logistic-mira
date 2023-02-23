@@ -4,8 +4,6 @@ import Post from "./Post";
 const PostData = () => {
   const [search, setSearch] = useState("");
   const { posts } = useSelector((state) => state.posts);
-
-  console.log(search);
   const userData = useSelector((state) => state.auth.data);
   return (
     <div className="posts">

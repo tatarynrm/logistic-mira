@@ -10,13 +10,18 @@ import Button from "../buttons/Button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StatusRadioButtons from "../inputs/StatusRadioButtons";
+import StatusForm from "./StatusForm";
 const EditPosts = ({ id, data }) => {
   const { posts } = useSelector((state) => state.posts);
   const currentPost = posts.items.find((post) => post._id === id);
-  const [status, setStatus] = useState("undone");
+  const [statusNote, setStatusNote] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(status);
+    if (currentPost) {
+      setStatusNote(currentPost.status);
+      console.log(statusNote);
+    }
+    console.log("---------------");
   }, [currentPost]);
   const editPost = async (values) => {
     try {
@@ -27,6 +32,20 @@ const EditPosts = ({ id, data }) => {
     } catch (err) {
       console.log(err);
     }
+  };
+  const submitStatus = async (values) => {
+    try {
+      const res = await api.put(`/notes/${id}`, values);
+      if (res.status === 201) {
+        dispatch(fetchPosts());
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const onSelect = (e) => {
+    setStatusNote(e.target.value);
+    console.log(statusNote);
   };
 
   if (currentPost === undefined) {
@@ -46,12 +65,12 @@ const EditPosts = ({ id, data }) => {
           carOwner: currentPost.carOwner,
           cargoOwner: currentPost.cargoOwner,
           note: currentPost.note,
-          status: currentPost.status,
+          status: statusNote,
         }}
         validationSchema={createSchema}
-        onSubmit={(values, { resetForm, error, status }) => {
+        onSubmit={(values, { resetForm }, statusNote) => {
           editPost(values);
-          console.log(values);
+          console.log("--------------", statusNote);
         }}
       >
         {({ errors, touched, isValidating }) => (
@@ -175,14 +194,37 @@ const EditPosts = ({ id, data }) => {
                 />
               </div>
               <div className="notes__status">
-                <StatusRadioButtons data={currentPost} setStatus={setStatus} />
+                {/* <StatusRadioButtons
+                  data={currentPost}
+                  setStatus={setStatus}
+                  status={status}
+                /> */}
+                {/* <input
+                  type="radio"
+                  name="status"
+                  value="done"
+                  onChange={(e) => onChangeStatus(e)}
+                />
+                <input
+                  type="radio"
+                  name="status"
+                  value="undone"
+                  onChange={(e) => onChangeStatus(e)}
+                />
+                <input
+                  type="radio"
+                  name="status"
+                  value="active"
+                  onChange={(e) => onChangeStatus(e)}
+                />
+              </div> */}
               </div>
             </div>
-
             <button type="submit">Редагувати</button>
           </Form>
         )}
       </Formik>
+      <StatusForm id={id} />
       <Link to={"/"}>
         <Button cls={"return"} text={"Повернутись на головну сторінку"} />
       </Link>
