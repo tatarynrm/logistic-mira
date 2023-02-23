@@ -1,12 +1,21 @@
 .posts {
   .post {
+    &__active {
+      background-color: rgb(232, 232, 88);
+    }
+    &__done {
+      background-color: rgb(89, 239, 81);
+    }
+    &__undone {
+      background-color: rgb(222, 83, 41);
+    }
     position: relative;
     display: flex;
     justify-content: space-between;
     text-align: center;
     align-items: center;
     margin-top: 40px;
-    height: 100px;
+    height: 80px;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 1px 1px 5px rgb(66, 152, 219);
@@ -16,6 +25,8 @@
       display: flex;
       align-items: center;
       text-align: center;
+      // background-color: red;
+      // height: 100%;
     }
 
     &__edit_buttons {
@@ -27,6 +38,10 @@
       top: 0;
       font-size: 20px;
       color: rgb(58, 169, 233);
+    }
+
+    &__status-radio {
+      background-color: red;
     }
   }
 

@@ -19,8 +19,6 @@ const initialState = {
     loading: "loading",
   },
 };
-// OCR A Extended
-// Rockwell Extra Bold
 const userSlice = createSlice({
   name: "posts",
   initialState,

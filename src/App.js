@@ -10,18 +10,20 @@ import Register from "./pages/Register/Register";
 import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
 import PrivateRoute from "./PrivateRoute";
 import DoesntExit from "./pages/DoesntExit";
+import { fetchPosts } from "./redux/slices/posts";
 
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   useEffect(() => {
     dispatch(fetchAuthMe());
+    dispatch(fetchPosts());
   }, []);
   return (
     <>
       <Header />
       <Routes>
-        <Route element={<Login />} path="/login" />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />

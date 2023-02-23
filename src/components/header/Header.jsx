@@ -1,27 +1,27 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { logout, selectIsAuth } from "../../redux/slices/auth";
 import Button from "../buttons/Button";
 import "./Header.scss";
 const Header = () => {
   const isAuth = useSelector(selectIsAuth);
   const userData = useSelector((state) => state.auth.data);
-  console.log(userData);
   const dispatch = useDispatch();
+  const token = window.localStorage.getItem("token");
   const onClickLogout = () => {
     if (window.confirm("Ви впенені що хочете вийти?")) {
-      dispatch(logout());
       window.localStorage.removeItem("token");
+      dispatch(logout());
     }
   };
   return (
     <header className="header container">
-      <Link to={isAuth ? "/" : "/login"}>
+      <Link to={token ? "/" : "/login"}>
         <Button text={"Logistic"} cls={"normal"} />
       </Link>
       <div
-        style={isAuth ? { display: "flex", justifyContent: "flex-end" } : null}
+        style={token ? { display: "flex", justifyContent: "flex-end" } : null}
         className="header__buttons"
       >
         <div className="header__user-info">
