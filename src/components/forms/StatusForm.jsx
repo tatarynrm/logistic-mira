@@ -29,7 +29,6 @@ const StatusForm = ({ id }) => {
       {/* <input type="text" onChange={(e) => setStatus(e.target.value)} /> */}
       <button
         className="button button__normal"
-        // style={{ backgroundColor: "rgb(58, 169, 233)" }}
         disabled={status === "" && status === "Оберіть статус" ? true : false}
         type="submit"
       >

@@ -1,7 +1,7 @@
 import React from "react";
 
 const DoesntExit = () => {
-  return <div>DoesntExit</div>;
+  return <div>{/* <p>Ти що дебіл ?</p> */}</div>;
 };
 
 export default DoesntExit;

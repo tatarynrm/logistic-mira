@@ -1,13 +1,13 @@
 .posts {
   .post {
     &__active {
-      background-color: rgb(232, 232, 88);
+      background-color: rgb(225 225 145);
     }
     &__done {
-      background-color: rgb(89, 239, 81);
+      background-color: rgb(156 215 153);
     }
     &__undone {
-      background-color: rgb(222, 83, 41);
+      background-color: rgb(221 126 98);
     }
     position: relative;
     display: flex;
@@ -25,8 +25,6 @@
       display: flex;
       align-items: center;
       text-align: center;
-      // background-color: red;
-      // height: 100%;
     }
 
     &__edit_buttons {
@@ -96,4 +94,8 @@
       }
     }
   }
+}
+
+.icon__copy {
+  // width: 100px;
 }

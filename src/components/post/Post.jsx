@@ -4,26 +4,39 @@ import Button from "../buttons/Button";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 import { AiFillEyeInvisible } from "react-icons/ai";
+import { FiCopy } from "react-icons/fi";
 import { AiFillEye } from "react-icons/ai";
+import { BiDuplicate } from "react-icons/bi";
+
 import "./Post.scss";
 import axios from "../../utils/axios/axios";
 import { fetchPosts } from "../../redux/slices/posts";
 import { useDispatch, useSelector } from "react-redux";
 import Tooltip from "../tooltip/Tooltip";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PostEditButtons from "../postEditButtons/PostEditButtons";
 const Post = ({ obj, userData }) => {
+  const [showCopy, setShowCopy] = useState(false);
   const [showNote, setShowNote] = useState(false);
   const { users } = useSelector((state) => state.users);
   const dispatch = useDispatch();
-  console.log(obj.status);
+
   const deletePost = async (id) => {
     if (window.confirm("Ви точно хочете видалити ?")) {
       const { data } = await axios.delete(`/notes/${id}`);
       dispatch(fetchPosts());
     }
   };
+
   return (
     <>
-      <div className={`post post__${obj.status}`}>
+      {/* <PostEditButtons obj={obj} /> */}
+      <div
+        onMouseEnter={() => setShowCopy(!showCopy)}
+        onMouseLeave={() => setShowCopy(!showCopy)}
+        className={`post post__${obj.status}`}
+      >
         {obj.note !== "" ? (
           <i
             onClick={() => setShowNote(!showNote)}
@@ -32,6 +45,8 @@ const Post = ({ obj, userData }) => {
             {showNote ? <AiFillEyeInvisible /> : <AiFillEye />}
           </i>
         ) : null}
+        {showCopy ? <PostEditButtons obj={obj} /> : null}
+
         <div>{obj.date}</div>
         <div>{obj.cityFrom.toUpperCase()}</div>
         <div>{obj.cityTo.toUpperCase()}</div>
@@ -70,6 +85,7 @@ const Post = ({ obj, userData }) => {
         )}
       </div>
       {showNote ? <Tooltip tooltip={obj.note} csl={showNote} /> : null}
+      <ToastContainer />
     </>
   );
 };
