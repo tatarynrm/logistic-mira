@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Button from "../../components/buttons/Button";
 import axios from "../../utils/axios/axios";
+import { Audio } from "react-loader-spinner";
 import "./Lardi.scss";
 const Lardi = () => {
   const userData = useSelector((state) => state.auth.data);
@@ -33,10 +34,15 @@ const Lardi = () => {
   };
 
   const updateLardiCargos = async () => {
+    const dataJson = {
+      cargoIds: list,
+    };
+
     try {
-      const { data } = await axios.post("/lardi/cargo/repeat", {
-        cargoIds: list,
-      });
+      if (list.length === 0) {
+        return console.log("nothing");
+      }
+      const { data } = await axios.post("/lardi/cargo/repeat", list);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -51,27 +57,31 @@ const Lardi = () => {
           <button onClick={getCargos}>LARDI</button>
         </>
       ) : null}
-      {lardi !== []
-        ? lardi.map((item) => (
-            <div className="lardi__cargo" key={item.id}>
-              <div> {item.waypointListSource[0].town.name}</div>
-              <div> {item.waypointListTarget[0].town.name}</div>
-              <div className="payment">
-                {item.payment.price
-                  ? `${item.payment.price} грн`
-                  : "Ціну не вказано"}
-              </div>
-              <div> {item.id}</div>
-              <input
-                type="checkbox"
-                name="data"
-                id={item.id}
-                onChange={(item) => check(item)}
-                // checked={list.includes(item.id)}
-              />
+      {lardi !== [] ? (
+        lardi.map((item) => (
+          <div className="lardi__cargo" key={item.id}>
+            <div> {item.waypointListSource[0].town.name}</div>
+            <div> {item.waypointListTarget[0].town.name}</div>
+            <div className="payment">
+              {item.payment.price
+                ? `${item.payment.price} грн`
+                : "Ціну не вказано"}
             </div>
-          ))
-        : null}
+            <div> {item.id}</div>
+            <input
+              type="checkbox"
+              name="data"
+              id={item.id}
+              onChange={(item) => check(item)}
+              // checked={list.includes(item.id)}
+            />
+          </div>
+        ))
+      ) : (
+        <div style={{ marginTop: "200px" }} className="loader">
+          ...............................
+        </div>
+      )}
       <Button func={updateLardiCargos} text={"Оновити заявки"} cls={"normal"} />
     </div>
   );
