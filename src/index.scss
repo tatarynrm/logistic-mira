@@ -6,3 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.lardi__cargo {
+  display: flex;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  div {
+    display: flex;
+    justify-content: start;
+    width: 300px;
+  }
+  .payment {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+  }
+}
