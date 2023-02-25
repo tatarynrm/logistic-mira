@@ -16,19 +16,17 @@ const PostData = () => {
         placeholder={"Введіть щось для пошуку"}
       />
       {posts.status !== "loaded" ? (
-        <>
-          <div className="loader">
-            <Audio
-              height="80"
-              width="80"
-              radius="9"
-              color="rgb(58, 169, 233)"
-              ariaLabel="three-dots-loading"
-              wrapperStyle
-              wrapperClass
-            />
-          </div>
-        </>
+        <div className="loader">
+          <Audio
+            height="80"
+            width="80"
+            radius="9"
+            color="rgb(58, 169, 233)"
+            ariaLabel="three-dots-loading"
+            wrapperStyle
+            wrapperClass
+          />
+        </div>
       ) : (
         <>
           {posts?.items

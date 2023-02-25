@@ -30,7 +30,7 @@ const Header = () => {
         </>
       ) : null}
       <div
-        style={token ? { display: "flex", justifyContent: "flex-end" } : ""}
+        // style={token ? { display: "flex", justifyContent: "flex-end" } : ""}
         className="header__buttons"
       >
         <div className="header__user-info">
@@ -38,11 +38,6 @@ const Header = () => {
             {userData ? `${userData.firstName} ${userData.lastName}` : null}
           </span>
         </div>
-        {/* {userData?._id === posts.items._id ? (
-          <span>0</span>
-        ) : (
-          <span>Активних заявок:{length.length}</span>
-        )} */}
         {token ? (
           <>
             <Button func={onClickLogout} text={"Вийти"} cls={"danger"} />

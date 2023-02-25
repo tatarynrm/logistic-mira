@@ -8,13 +8,11 @@ body {
 }
 .lardi__cargo {
   display: flex;
-  // justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
   div {
     display: flex;
-    justify-content: start;
-    width: 300px;
+    width: 200px;
   }
   .payment {
     display: flex;
