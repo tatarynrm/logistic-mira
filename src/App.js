@@ -17,9 +17,10 @@ function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   const token = window.localStorage.getItem("token");
+  const userData = useSelector((state) => state.auth.data);
   useEffect(() => {
-    dispatch(fetchAuthMe());
     dispatch(fetchPosts());
+    dispatch(fetchAuthMe());
   }, []);
   return (
     <>

@@ -36,7 +36,7 @@ const Header = () => {
         ) : (
           <span>Активних заявок:{length.length}</span>
         )} */}
-        {isAuth ? (
+        {token ? (
           <>
             <Button func={onClickLogout} text={"Вийти"} cls={"danger"} />
           </>

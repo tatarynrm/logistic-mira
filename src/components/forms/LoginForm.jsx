@@ -27,13 +27,14 @@ const LoginForm = () => {
         validationSchema={loginSchema}
         onSubmit={async (values, { resetForm }) => {
           // dispatch(fetchAuth(values));
-          // dispatch(fetchAuthMe(values));
+          dispatch(fetchAuthMe());
           const data = await dispatch(fetchAuth(values));
           if (!data.payload) {
             return alert("Не вдалось авторизуватись");
           }
 
           if ("token" in data.payload) {
+            dispatch(fetchAuthMe());
             window.localStorage.setItem("token", data.payload.token);
             function setTokenDelete() {
               return setTimeout(() => {

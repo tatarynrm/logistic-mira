@@ -71,7 +71,7 @@ const Post = ({ obj, userData }) => {
         <TruncateMarkup lines={1}>
           <div className={"carOwner"}>{obj.carOwner.toUpperCase()}</div>
         </TruncateMarkup>
-        {userData._id === obj.user._id ? (
+        {obj.user._id === userData?._id ? (
           <div className="post__edit_buttons">
             <div>
               <Link to={`/notes/${obj._id}`}>

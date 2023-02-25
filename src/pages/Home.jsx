@@ -7,7 +7,12 @@ import axios from "../utils/axios/axios";
 import Post from "../components/post/Post";
 import PostData from "../components/post/PostData";
 import { fetchUserById, fetchUsers } from "../redux/slices/user";
+import { fetchAuthMe } from "../redux/slices/auth";
 const Home = () => {
+  const getCargos = async () => {
+    const { data } = await axios.get("/lardi/cargo");
+    console.log(data);
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPosts());
@@ -15,7 +20,10 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getCargos();
+    fetchAuthMe();
+  }, []);
   return (
     <div className="home container">
       <CreatePosts />

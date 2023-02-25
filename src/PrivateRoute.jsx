@@ -7,7 +7,7 @@ import Login from "./pages/Login/Login";
 const PrivateRoute = ({ children }) => {
   const isAuth = useSelector(selectIsAuth);
   const token = localStorage.getItem("token");
-  return isAuth ? <Outlet /> : <Login />;
+  return token ? <Outlet /> : <Login />;
 };
 
 export default PrivateRoute;

@@ -5,6 +5,7 @@ const PostData = () => {
   const [search, setSearch] = useState("");
   const { posts } = useSelector((state) => state.posts);
   const userData = useSelector((state) => state.auth.data);
+  console.log(userData);
   return (
     <div className="posts">
       <h3>Пошук</h3>
