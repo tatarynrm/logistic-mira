@@ -16,10 +16,10 @@ const EditPosts = ({ id, data }) => {
   const currentPost = posts.items.find((post) => post._id === id);
   const [statusNote, setStatusNote] = useState("");
   const dispatch = useDispatch();
+  const notify = (text) => toast.success(text);
   useEffect(() => {
     if (currentPost) {
       setStatusNote(currentPost.status);
-      console.log(statusNote);
     }
   }, [currentPost]);
   const editPost = async (values) => {
@@ -69,7 +69,7 @@ const EditPosts = ({ id, data }) => {
         validationSchema={createSchema}
         onSubmit={(values, { resetForm }, statusNote) => {
           editPost(values);
-          console.log("--------------", statusNote);
+          notify("Відредаговано");
         }}
       >
         {({ errors, touched, isValidating }) => (
@@ -191,32 +191,6 @@ const EditPosts = ({ id, data }) => {
                   name="note"
                   placeholder="Нотатки,якщо необхідно"
                 />
-              </div>
-              <div className="notes__status">
-                {/* <StatusRadioButtons
-                  data={currentPost}
-                  setStatus={setStatus}
-                  status={status}
-                /> */}
-                {/* <input
-                  type="radio"
-                  name="status"
-                  value="done"
-                  onChange={(e) => onChangeStatus(e)}
-                />
-                <input
-                  type="radio"
-                  name="status"
-                  value="undone"
-                  onChange={(e) => onChangeStatus(e)}
-                />
-                <input
-                  type="radio"
-                  name="status"
-                  value="active"
-                  onChange={(e) => onChangeStatus(e)}
-                />
-              </div> */}
               </div>
             </div>
             <button type="submit">Редагувати</button>

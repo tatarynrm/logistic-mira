@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import axios from "../../utils/axios/axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const StatusForm = ({ id }) => {
   const [status, setStatus] = useState("");
-  console.log(status);
+  const notify = (text) => toast.success(text);
   const handleStatusUpdate = async (e) => {
     e.preventDefault();
-    const { data } = await axios.put(`/notes/status/${id}`, {
-      status,
-    });
-    console.log(status);
+
     try {
+      const { data } = await axios.put(`/notes/status/${id}`, {
+        status,
+      });
+      notify("Статус оновлено");
     } catch (error) {
       console.log(error);
     }
@@ -34,6 +37,7 @@ const StatusForm = ({ id }) => {
       >
         Оновити статус
       </button>
+      <ToastContainer />
     </form>
   );
 };
