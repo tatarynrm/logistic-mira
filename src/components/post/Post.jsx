@@ -7,7 +7,7 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import { FiCopy } from "react-icons/fi";
 import { AiFillEye } from "react-icons/ai";
 import { BiDuplicate } from "react-icons/bi";
-
+import TruncateMarkup from "react-truncate-markup";
 import "./Post.scss";
 import axios from "../../utils/axios/axios";
 import { fetchPosts } from "../../redux/slices/posts";
@@ -47,15 +47,30 @@ const Post = ({ obj, userData }) => {
         ) : null}
         {showCopy ? <PostEditButtons obj={obj} /> : null}
 
-        <div>{obj.date}</div>
-        <div>{obj.cityFrom.toUpperCase()}</div>
-        <div>{obj.cityTo.toUpperCase()}</div>
-        <div>{obj.price.toUpperCase()}</div>
-        <div>{obj.money.toUpperCase()}</div>
-        <div>{obj.cargoOwner.toUpperCase()}</div>
-        <div>{obj.driver.toUpperCase()}</div>
-        <div>{obj.car.toUpperCase()}</div>
-        <div>{obj.carOwner.toUpperCase()}</div>
+        <div className={"date"}>{obj.date}</div>
+
+        <TruncateMarkup lines={1}>
+          <div className={"cityFrom"}>{obj.cityFrom.toUpperCase()}</div>
+        </TruncateMarkup>
+        <TruncateMarkup lines={1}>
+          <div className={"cityTo"}>{obj.cityTo.toUpperCase()}</div>
+        </TruncateMarkup>
+
+        <div className={"price"}>{obj.price.toUpperCase()}</div>
+        <div className={"money"}>{obj.money.toUpperCase()}</div>
+
+        <TruncateMarkup lines={1}>
+          <div className={"cargoOwner"}>{obj.cargoOwner.toUpperCase()}</div>
+        </TruncateMarkup>
+        <TruncateMarkup lines={1}>
+          <div className={"driver"}>{obj.driver.toUpperCase()}</div>
+        </TruncateMarkup>
+        <TruncateMarkup lines={1}>
+          <div className={"car"}>{obj.car.toUpperCase()}</div>
+        </TruncateMarkup>
+        <TruncateMarkup lines={1}>
+          <div className={"carOwner"}>{obj.carOwner.toUpperCase()}</div>
+        </TruncateMarkup>
         {userData._id === obj.user._id ? (
           <div className="post__edit_buttons">
             <div>

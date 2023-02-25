@@ -11,11 +11,12 @@ import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
 import PrivateRoute from "./PrivateRoute";
 import DoesntExit from "./pages/DoesntExit";
 import { fetchPosts } from "./redux/slices/posts";
-import LardiTrans from "./pages/Lardi-Trans/LardiTrans";
+// import LardiTrans from "./pages/Lardi-Trans/LardiTrans";
 
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+  const token = window.localStorage.getItem("token");
   useEffect(() => {
     dispatch(fetchAuthMe());
     dispatch(fetchPosts());
@@ -29,7 +30,6 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/notes/:id" element={<EditPost />} />
-          <Route path="/lardi" element={<LardiTrans />} />
         </Route>
         <Route path="*" exact={true} element={<DoesntExit />} />
       </Routes>

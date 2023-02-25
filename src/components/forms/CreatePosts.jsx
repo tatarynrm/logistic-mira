@@ -12,8 +12,6 @@ const CreatePosts = () => {
     try {
       const res = await api.post("/notes", values);
 
-      console.log(res);
-
       if (res.status === 201) {
         dispatch(fetchPosts());
       }
@@ -44,7 +42,7 @@ const CreatePosts = () => {
         {({ errors, touched, isValidating }) => (
           <Form className="form">
             <div className="form__body">
-              <div className="form__group">
+              <div className="form__group form__date">
                 <label htmlFor="date">Дата</label>
                 <Field id="date" name="date" placeholder="Дата" type="date" />
                 {errors.date && touched.date ? (
@@ -52,7 +50,7 @@ const CreatePosts = () => {
                 ) : null}
               </div>
 
-              <div className="form__group">
+              <div className="form__group form__cityFrom">
                 <label htmlFor="cityFrom">Завантаження</label>
                 <Field
                   id="cityFrom"
@@ -65,7 +63,7 @@ const CreatePosts = () => {
                 ) : null}
               </div>
 
-              <div className="form__group">
+              <div className="form__group form__cityTo">
                 <label htmlFor="cityTo">Вигрузка</label>
                 <Field
                   id="cityTo"
@@ -77,7 +75,7 @@ const CreatePosts = () => {
                   <div className="form__error">{errors.cityTo}</div>
                 ) : null}
               </div>
-              <div className="form__group">
+              <div className="form__group form__price">
                 <label htmlFor="Ціна">Ціна</label>
                 <Field
                   id="price"
@@ -89,7 +87,7 @@ const CreatePosts = () => {
                   <div className="form__error">{errors.price}</div>
                 ) : null}
               </div>
-              <div className="form__group">
+              <div className="form__group form__money">
                 <label htmlFor="Ціна">Маржа</label>
                 <Field
                   id="money"
@@ -101,7 +99,7 @@ const CreatePosts = () => {
                   <div className="form__error">{errors.money}</div>
                 ) : null}
               </div>
-              <div className="form__group">
+              <div className="form__group form__cargoOwner">
                 <label htmlFor="Ціна">Замовник</label>
                 <Field
                   id="cargoOwner"
@@ -113,7 +111,7 @@ const CreatePosts = () => {
                   <div className="form__error">{errors.cargoOwner}</div>
                 ) : null}
               </div>
-              <div className="form__group">
+              <div className="form__group form__driver">
                 <label htmlFor="Ціна">Водій</label>
                 <Field
                   id="driver"
@@ -125,7 +123,7 @@ const CreatePosts = () => {
                   <div className="form__error">{errors.driver}</div>
                 ) : null}
               </div>
-              <div className="form__group">
+              <div className="form__group form__car">
                 <label htmlFor="Ціна">Автомобіль</label>
                 <Field
                   id="car"
@@ -137,7 +135,7 @@ const CreatePosts = () => {
                   <div className="form__error">{errors.car}</div>
                 ) : null}
               </div>
-              <div className="form__group">
+              <div className="form__group form__carOwner">
                 <label htmlFor="Ціна">Власник авто</label>
                 <Field
                   id="carOwner"

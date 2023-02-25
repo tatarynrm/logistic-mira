@@ -1,6 +1,4 @@
 .create__form {
-  //   display: flex;
-  //   background-color: rgb(232, 226, 226);
   margin-bottom: 30px;
   .form__body {
     display: flex;
@@ -19,8 +17,6 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    // align-items: center;
-    // justify-content: center;
 
     button {
       width: 200px;
@@ -50,5 +46,85 @@
   .form__error {
     color: red;
     font-size: 14px;
+  }
+
+  .form__date {
+    width: 80px;
+  }
+  .form__cityFrom {
+    width: 100px;
+  }
+  .form__cityTo {
+    width: 100px;
+  }
+  .form__price {
+    width: 60px;
+  }
+  .form__money {
+    width: 60px;
+  }
+  .form__cargoOwner {
+    width: 200px;
+  }
+  .form__driver {
+    width: 200px;
+  }
+  .form__car {
+    width: 200px;
+  }
+  .form__carOwner {
+    width: 200px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .create__form {
+    margin-bottom: 30px;
+    .form__body {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .form__group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      button {
+        width: 200px;
+        border: none;
+        border-radius: 10px;
+        padding: 0.4rem;
+        margin-top: 20px;
+        background-color: rgb(58, 169, 233);
+        border: 1px solid transparent;
+        transition: all 0.4s ease;
+      }
+      button:hover {
+        border: 1px solid rgb(58, 169, 233);
+        background-color: white;
+        transition: all 0.4s ease;
+      }
+      .notes {
+        margin-top: 20px;
+        textarea {
+          width: 300px;
+          height: 100px;
+          resize: none;
+        }
+      }
+    }
+
+    .form__error {
+      color: red;
+      font-size: 14px;
+    }
   }
 }

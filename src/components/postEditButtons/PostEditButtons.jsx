@@ -11,7 +11,7 @@ const PostEditButtons = ({ obj }) => {
   const dispatch = useDispatch();
   const notify = (text) => toast.success(text);
   const copyInfo = (e) => {
-    const text = `Дата завантаження: ${obj.date}\nЗавантаження: ${obj.cityFrom}\nВигрузка: ${obj.cityTo}\nЦіна перевезення: ${obj.price}\nВантажовідправник: ${obj.cargoOwner}\nВодій: ${obj.driver}\nАвтомобіль: ${obj.car}\nЛогіст по транспортним перевезенням\nТатарин Мирослава 0989578520`;
+    const text = `Дата завантаження: ${obj.date}\nЗавантаження: ${obj.cityFrom}\nВигрузка: ${obj.cityTo}\nЦіна перевезення: ${obj.price}\nВантажовідправник: ${obj.cargoOwner}\nВодій: ${obj.driver}\nАвтомобіль: ${obj.car}\nЛогіст з транспортних перевезень\nТатарин Мирослава +390985842022 \nE-mail:tmvukrnet@ukr.net`;
     navigator.clipboard.writeText(text);
     if (ClipboardEvent) {
       notify(text);

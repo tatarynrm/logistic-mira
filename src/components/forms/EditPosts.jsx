@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./CreatePosts.scss";
+import "./EditPosts.scss";
 import { fetchPosts } from "../../redux/slices/posts";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form } from "formik";
@@ -21,7 +21,6 @@ const EditPosts = ({ id, data }) => {
       setStatusNote(currentPost.status);
       console.log(statusNote);
     }
-    console.log("---------------");
   }, [currentPost]);
   const editPost = async (values) => {
     try {
@@ -52,7 +51,7 @@ const EditPosts = ({ id, data }) => {
     return <div>No data...</div>;
   }
   return (
-    <div className="create__form">
+    <div className="edit__form">
       <Formik
         initialValues={{
           date: currentPost.date,

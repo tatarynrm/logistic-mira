@@ -15,6 +15,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
+  useEffect(() => {}, []);
   return (
     <div className="home container">
       <CreatePosts />

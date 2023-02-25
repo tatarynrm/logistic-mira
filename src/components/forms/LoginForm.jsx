@@ -11,7 +11,7 @@ const LoginForm = () => {
   const isAuth = useSelector(selectIsAuth);
   // const { data } = useSelector((state) => state.auth);
   // useEffect(() => {}, [data]);
-
+  const token = localStorage.getItem("token");
   // console.log(data);
   if (isAuth) {
     return <Navigate to="/" />;
