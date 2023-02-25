@@ -22,7 +22,7 @@ const Home = () => {
   }, []);
   useEffect(() => {
     getCargos();
-    fetchAuthMe();
+    // fetchAuthMe();
   }, []);
   return (
     <div className="home container">

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Post from "./Post";
+import { Audio } from "react-loader-spinner";
 const PostData = () => {
   const [search, setSearch] = useState("");
   const { posts } = useSelector((state) => state.posts);
   const userData = useSelector((state) => state.auth.data);
-  console.log(userData);
   return (
     <div className="posts">
       <h3>Пошук</h3>
@@ -17,7 +17,17 @@ const PostData = () => {
       />
       {posts.status !== "loaded" ? (
         <>
-          <p>Loading ...</p>
+          <div className="loader">
+            <Audio
+              height="80"
+              width="80"
+              radius="9"
+              color="rgb(58, 169, 233)"
+              ariaLabel="three-dots-loading"
+              wrapperStyle
+              wrapperClass
+            />
+          </div>
         </>
       ) : (
         <>
