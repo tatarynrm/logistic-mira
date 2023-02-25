@@ -11,6 +11,7 @@ import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
 import PrivateRoute from "./PrivateRoute";
 import DoesntExit from "./pages/DoesntExit";
 import { fetchPosts } from "./redux/slices/posts";
+import Lardi from "./pages/Lardi/Lardi";
 // import LardiTrans from "./pages/Lardi-Trans/LardiTrans";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/notes/:id" element={<EditPost />} />
+          <Route path="/lardi" element={<Lardi />} />
         </Route>
         <Route path="*" exact={true} element={<DoesntExit />} />
       </Routes>

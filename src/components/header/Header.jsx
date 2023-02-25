@@ -22,8 +22,15 @@ const Header = () => {
       <Link to={token ? "/" : "/login"}>
         <Button text={"Logistic"} cls={"normal"} />
       </Link>
+      {token ? (
+        <>
+          <Link to={"/lardi"}>
+            <Button text={"Lardi"} cls={"normal"} />
+          </Link>
+        </>
+      ) : null}
       <div
-        style={token ? { display: "flex", justifyContent: "flex-end" } : null}
+        style={token ? { display: "flex", justifyContent: "flex-end" } : ""}
         className="header__buttons"
       >
         <div className="header__user-info">

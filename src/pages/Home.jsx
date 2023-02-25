@@ -9,7 +9,6 @@ import PostData from "../components/post/PostData";
 import { fetchUserById, fetchUsers } from "../redux/slices/user";
 import { fetchAuthMe } from "../redux/slices/auth";
 const Home = () => {
-  const userData = useSelector((state) => state.auth.data);
   const [lardi, setLardi] = useState([]);
   const getCargos = async () => {
     try {
@@ -33,28 +32,6 @@ const Home = () => {
     <div className="home container">
       <CreatePosts />
       <PostData />
-
-      {userData?.email === "tmv@gmail.com" ? (
-        <>
-          <button onClick={getCargos}>LARDI</button>
-
-          {lardi !== []
-            ? lardi.map((item) => (
-                <div className="lardi__cargo" key={item.id}>
-                  <div> {item.waypointListSource[0].town.name}</div>
-                  <div> {item.waypointListTarget[0].town.name}</div>
-                  <div className="payment">
-                    {" "}
-                    {item.payment.price
-                      ? `${item.payment.price} грн`
-                      : "Ціну не вказано"}
-                  </div>
-                  <div> {item.id}</div>
-                </div>
-              ))
-            : null}
-        </>
-      ) : null}
     </div>
   );
 };
