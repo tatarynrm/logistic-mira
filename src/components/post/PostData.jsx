@@ -41,7 +41,16 @@ const PostData = () => {
                     item.cargoOwner.toLowerCase().includes(search) ||
                     item.money.toLowerCase().includes(search) ||
                     item.price.toLowerCase().includes(search) ||
-                    item.date.toLowerCase().includes(search);
+                    item.date.toLowerCase().includes(search) ||
+                    item.cityFrom.toUpperCase().includes(search) ||
+                    item.cityTo.toUpperCase().includes(search) ||
+                    item.driver.toUpperCase().includes(search) ||
+                    item.car.toUpperCase().includes(search) ||
+                    item.carOwner.toUpperCase().includes(search) ||
+                    item.cargoOwner.toUpperCase().includes(search) ||
+                    item.money.toUpperCase().includes(search) ||
+                    item.price.toUpperCase().includes(search) ||
+                    item.date.toUpperCase().includes(search);
             })
             .map((item) => (
               <Post key={item._id} obj={item} userData={userData} />

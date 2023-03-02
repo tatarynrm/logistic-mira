@@ -1,0 +1,22 @@
+.currencies {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 30%;
+  top: 100%;
+  background-color: rgb(58, 169, 233);
+  box-shadow: 1px 1px 10px rgb(35, 179, 192);
+  padding: 0.4rem;
+  width: 500px;
+
+  .currency__block {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
