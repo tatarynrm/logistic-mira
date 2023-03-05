@@ -32,7 +32,7 @@ const Header = () => {
         text={showCurrencies ? "Приховати" : "Курси валют"}
         cls={showCurrencies ? "danger" : "normal"}
       />
-      {showCurrencies ? <Currencies /> : null}
+      {showCurrencies ? <Currencies showCurrencies={showCurrencies} /> : null}
       {token ? (
         <>
           <Link to={"/lardi"}>

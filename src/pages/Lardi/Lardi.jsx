@@ -42,7 +42,7 @@ const Lardi = () => {
       if (list.length === 0) {
         return console.log("nothing");
       }
-      const { data } = await axios.post("/lardi/cargo/repeat", list);
+      const { data } = await axios.post("/lardi/cargo/repeat", dataJson);
       console.log(data);
     } catch (error) {
       console.log(error);

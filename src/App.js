@@ -13,7 +13,6 @@ import DoesntExit from "./pages/DoesntExit";
 import { fetchPosts } from "./redux/slices/posts";
 import Lardi from "./pages/Lardi/Lardi";
 // import LardiTrans from "./pages/Lardi-Trans/LardiTrans";
-
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);

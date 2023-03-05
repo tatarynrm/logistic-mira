@@ -6,6 +6,11 @@ const PostData = () => {
   const [search, setSearch] = useState("");
   const { posts } = useSelector((state) => state.posts);
   const userData = useSelector((state) => state.auth.data);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage, setPostsPerPage] = useState(10);
+  // const lastPostIndex = currentPage * postsPerPage;
+  // const firstPostIndex = lastPostIndex - postsPerPage;
+  // const currentPosts = posts.items.slice(firstPostIndex, lastPostIndex);
   return (
     <div className="posts">
       <h3>Пошук</h3>
@@ -29,7 +34,7 @@ const PostData = () => {
         </div>
       ) : (
         <>
-          {posts?.items
+          {posts.items
             .filter((item) => {
               return search.toLowerCase() === ""
                 ? item

@@ -8,7 +8,18 @@
   box-shadow: 1px 1px 10px rgb(35, 179, 192);
   padding: 0.4rem;
   width: 500px;
-
+  animation: show 0.3s linear;
+  &.active {
+    background-color: red;
+  }
+  @keyframes show {
+    0% {
+      transform: scale(0%);
+    }
+    100% {
+      transform: scale(100%);
+    }
+  }
   .currency__block {
     display: flex;
     flex-direction: column;

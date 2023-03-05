@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // background: url("https://kia-motors.net/media/cache/post/uploads/media/post/cms/media/28829a7e3d86d848ce36612d78a9b466079b75eb.png");
+  // background-repeat: no-repeat no-repeat;
+  // background-size: cover;
+  // object-fit: cover;
 }
 .lardi__cargo {
   display: flex;
@@ -20,4 +24,14 @@ body {
     align-items: center;
     justify-content: center;
   }
+}
+
+.absolute__popup {
+  display: none;
+}
+.absolute__popup.active {
+  // z-index: 999999;
+  margin: 0 auto;
+  display: flex;
+  margin: 0 auto;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Currencies.scss";
 import axios from "axios";
-const Currencies = () => {
+const Currencies = ({ showCurrencies }) => {
   const [currencies, setCurrencies] = useState([]);
   const endpoints = [
     "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json",
@@ -27,10 +27,10 @@ const Currencies = () => {
   }, []);
 
   return (
-    <div className="currencies">
+    <div className={showCurrencies ? "currencies active" : "currencies"}>
       {currencies?.map((item) => {
         return (
-          <div key={item.txt} className="currency__block">
+          <div key={item.txt} className={"currency__block"}>
             <div>{item.exchangedate}</div>
             <div className="currency__name">{item.txt}</div>
             <div>{item.rate.toString().slice(0, 4)} грн</div>
